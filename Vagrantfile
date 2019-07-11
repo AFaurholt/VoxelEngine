@@ -44,7 +44,11 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
-  config.vm.synced_folder "VoxelEngine/out", "/vagrant_out"
+    
+    config.vm.synced_folder "VoxelEngine/src", "/vagrant/src"
+    config.vm.synced_folder "VoxelEngine/util", "/vagrant/util"
+    config.vm.synced_folder "VoxelEngine/out", "/vagrant/out"
+    
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
