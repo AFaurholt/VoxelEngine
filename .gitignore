@@ -11,3 +11,4 @@ CTestTestfile.cmake
 /VoxelEngine/.vs
 /VoxelEngine/out/build/x64-Debug/.cmake/api/v1
 /VoxelEngine/out/build/x64-Debug
+/.vagrant
