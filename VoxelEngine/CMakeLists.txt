@@ -10,18 +10,25 @@ set (VoxelEngine_VERSION_MAJOR 0)
 set (VoxelEngine_VERSION_MINOR 0)
 set (VoxelEngine_VERSION_PATCH 0)
 
+# Select compiler and standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 IF (WIN32)
-  set(CMAKE_CXX_COMPILER MSVC_VERSION)
+	
 ELSE()
   set(CMAKE_CXX_COMPILER /usr/bin/g++)
 ENDIF()
 
+# Sub-dirs
+add_subdirectory(src)
+
 # Add source to this project's executable.
-add_executable (VoxelEngine "VoxelEngine.cpp" "VoxelEngine.h")
+add_executable (VoxelEngine VoxelEngine.cpp)
+
+# Link libs
+target_link_libraries(VoxelEngine VoxelEngine-src)
 
 # Add tests
 # Download and unpack googletest at configure time
@@ -48,10 +55,3 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
                  ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
                  EXCLUDE_FROM_ALL)
-
-# The gtest/gtest_main targets carry header search path
-# dependencies automatically when using CMake 2.8.11 or
-# later. Otherwise we have to add them here ourselves.
-if (CMAKE_VERSION VERSION_LESS 2.8.11)
-  include_directories("${gtest_SOURCE_DIR}/include")
-endif()

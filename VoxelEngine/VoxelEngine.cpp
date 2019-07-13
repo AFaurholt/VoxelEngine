@@ -3,12 +3,14 @@
 
 #include "VoxelEngine.h"
 #include "src/AddNum.h"
+#include <string>
 
 using namespace std;
 
 int main()
 {
-	int tmp = add(1, 4, 9, 8);
-	cout << "Hello CMake." + tmp << endl;
+	int tmp = add(1, 4);
+	std::string outStr = "Hello CMake." + std::to_string(tmp);
+	cout << outStr << endl;
 	return 0;
 }
