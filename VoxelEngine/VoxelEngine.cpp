@@ -2,11 +2,13 @@
 //
 
 #include "VoxelEngine.h"
+#include "src/AddNum.h"
 
 using namespace std;
 
 int main()
 {
-	cout << "Hello CMake." << endl;
+	int tmp = add(1, 4, 9, 8);
+	cout << "Hello CMake." + tmp << endl;
 	return 0;
 }
