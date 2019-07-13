@@ -17,7 +17,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 IF (WIN32)
   set(CMAKE_CXX_COMPILER MSVC_VERSION)
 ELSE()
-  set(CMAKE_CXX_COMPILER /usr/bin/g++)
+  set(CMAKE_CXX_COMPILER /usr/bin/c++)
 ENDIF()
 
 # Add source to this project's executable.
