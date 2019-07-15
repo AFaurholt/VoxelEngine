@@ -1,14 +1,11 @@
-﻿# CMakeList.txt : CMake project for VoxelEngine, include source and define
-# project specific logic here.
-#
-cmake_minimum_required (VERSION 3.14)
+﻿cmake_minimum_required (VERSION 3.13.5)
 
 project(VoxelEngine)
 
 # The version number.
 set (VoxelEngine_VERSION_MAJOR 0)
 set (VoxelEngine_VERSION_MINOR 0)
-set (VoxelEngine_VERSION_PATCH 0)
+set (VoxelEngine_VERSION_PATCH 1)
 
 # Select compiler and standard
 set(CMAKE_CXX_STANDARD 17)
@@ -18,7 +15,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 IF (WIN32)
 	
 ELSE()
-  set(CMAKE_CXX_COMPILER /usr/bin/g++)
+  set(CMAKE_CXX_COMPILER /usr/bin/c++)
 ENDIF()
 
 # Sub-dirs
