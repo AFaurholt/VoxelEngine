@@ -1,4 +1,4 @@
-﻿cmake_minimum_required(VERSION 3.13.5)
+﻿cmake_minimum_required(VERSION 3.13.4)
 
 project(VoxelEngine)
 
@@ -28,7 +28,6 @@ add_executable (VoxelEngine VoxelEngine.cpp)
 # Link libs
 target_link_libraries(VoxelEngine VoxelEngine-src)
 
-# Add tests
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
@@ -54,6 +53,9 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
                  ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
                  EXCLUDE_FROM_ALL)
 
+# Add tests to build and link libs
+add_subdirectory(tests)
+target_link_libraries(VoxelEngine-tests VoxelEngine-src gtest_main)
 
 # configure a header file to pass some of the CMake settings
 # to the source code
