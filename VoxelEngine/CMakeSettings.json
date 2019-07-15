@@ -10,7 +10,8 @@
       "cmakeCommandArgs": "",
       "buildCommandArgs": "-v",
       "ctestCommandArgs": "",
-      "variables": []
+      "variables": [],
+      "cmakeExecutable": ""
     }
   ]
 }

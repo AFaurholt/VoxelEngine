@@ -1,0 +1,7 @@
+// version number
+#define VoxelEngine_VERSION_MAJOR @VoxelEngine_VERSION_MAJOR@
+#define VoxelEngine_VERSION_MINOR @VoxelEngine_VERSION_MINOR@
+#define VoxelEngine_VERSION_PATCH @VoxelEngine_VERSION_PATCH@
+#define VoxelEngine_VERSION_TWEAK @VoxelEngine_VERSION_TWEAK@
+
+// paths

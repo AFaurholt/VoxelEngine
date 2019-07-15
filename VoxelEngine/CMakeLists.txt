@@ -1,4 +1,4 @@
-﻿cmake_minimum_required (VERSION 3.13.5)
+﻿cmake_minimum_required(VERSION 3.13.5)
 
 project(VoxelEngine)
 
@@ -6,6 +6,7 @@ project(VoxelEngine)
 set (VoxelEngine_VERSION_MAJOR 0)
 set (VoxelEngine_VERSION_MINOR 0)
 set (VoxelEngine_VERSION_PATCH 1)
+set (VoxelEngine_VERSION_TWEAK 3)
 
 # Select compiler and standard
 set(CMAKE_CXX_STANDARD 17)
@@ -52,3 +53,20 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
                  ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
                  EXCLUDE_FROM_ALL)
+
+
+# configure a header file to pass some of the CMake settings
+# to the source code
+configure_file (
+  "${PROJECT_SOURCE_DIR}/ProjectConfig.h.in"
+  "${PROJECT_BINARY_DIR}/ProjectConfig.h"
+  )
+
+# add the binary tree to the search path for include files
+include_directories("${PROJECT_BINARY_DIR}")
+
+get_cmake_property(_variableNames VARIABLES)
+list (SORT _variableNames)
+foreach (_variableName ${_variableNames})
+    message(STATUS "${_variableName}=${${_variableName}}")
+endforeach()
