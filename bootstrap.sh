@@ -1,1 +1,4 @@
-apt-get ninja-build
+#!/usr/bin/env bash
+
+apt-get update
+apt-get install -y ninja-build
