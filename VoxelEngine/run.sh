@@ -1,4 +1,4 @@
-mkdir -p out/build
-cd ./out/build
-cmake -GNinja ../..
+mkdir -p out/build/linux
+cd ./out/build/linux
+cmake -GNinja ../../..
 ninja
