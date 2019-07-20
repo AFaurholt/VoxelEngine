@@ -48,6 +48,26 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/glfw-src
                  ${CMAKE_CURRENT_BINARY_DIR}/glfw-build
                  EXCLUDE_FROM_ALL)
 
+# Download and unpack glm at configure time
+configure_file(CMakeLists.txt.in.glm glm-download/CMakeLists.txt)
+execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
+  RESULT_VARIABLE result
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/glm-download )
+if(result)
+  message(FATAL_ERROR "CMake step for glfw failed: ${result}")
+endif()
+execute_process(COMMAND ${CMAKE_COMMAND} --build .
+  RESULT_VARIABLE result
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/glm-download )
+if(result)
+  message(FATAL_ERROR "Build step for glfw failed: ${result}")
+endif()
+
+# Add glm directly to our build.
+add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/glm-src
+                 ${CMAKE_CURRENT_BINARY_DIR}/glm-build
+                 EXCLUDE_FROM_ALL)
+
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in.gtest googletest-download/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
